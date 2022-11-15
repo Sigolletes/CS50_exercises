@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS50 exercises</title>              
+  </head>
+
+  <body>
+    <h1>CS50 exercises</h1>
+
+    <script>
+
+
+
+// CAESAR CIPHER ......................................................................
+
+const alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+
+const caesarCipher = (function() {
+
+  const decoder = (encodedStr, positions) => {
+    encodedStr = encodedStr.toLowerCase();
+    let decoded = [];
+    for (let char of encodedStr) {
+      if (char === " ") {
+        decoded.push(" ");
+      } else {
+        let charIndex = alphabet.indexOf(char);
+        decoded.push(alphabet[charIndex + positions]);
+      }
+    }
+   console.log(decoded.join(""));
+   decoded.splice(0);
+  }
+
+  const printAll = (encodedStr) => {
+    for (let i = 0; i <= 25; i++) {
+      console.log(`${i} positions: `);
+      decoder(encodedStr, i);
+    }
+  }
+
+  return {
+    decoder,
+    printAll
+  };
+})();
+caesarCipher.printAll("Glcr gur jbeq frphevgl orybj sbe n serr cbvag");
+
+    </script>
+
+  </body>
+</html>
