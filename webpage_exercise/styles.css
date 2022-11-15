@@ -1,33 +1,57 @@
-@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+	list-style: none;
 }
 
 :root {
-  --color1: #BAC745;
-  --color2: #F3CC63;
-  --color3: #CF7E29;
-  --color4: #9D0F2C;
-  --color5: #460C18;
+  --color1: #8f4d07;
+  --color2: #f5edd9;
+  --color3: #e2821a;
+  --color4: #409a8c;
+  --color5: #305953;
+  --color6: #f8ecce;
 
-    font-family: 'Indie Flower', cursive;
+  font-family: 'Nunito Sans', sans-serif;
 }
 
 body {
   width: 100vw;
   height: 100vh;
   background-color: var(--color4);
-  display: grid;
-  grid-template-rows: 2fr 8fr 2fr;
+}
+
+#grid {
+	width: 100%;
+  height: 100%;
+  background-color: var(--color4);
+	display: grid;
+  grid-template-rows: 2fr 17fr 1fr;
   grid-template-columns: 1fr 5fr;
   gap: 2vmin;
   padding: 2vmin;
+	text-align: center;
+  color: var(--color5);
+}
 
-  color:
+h1 {
+	font-size: 4.9vmin;
+}
+
+h2 {
+	font-size: 2.7vmin;
+}
+
+h3 {
+	font-size: 2.5vmin;
+}
+
+h5 {
+	font-size: 2vmin;
 }
 
 #header {
@@ -36,18 +60,76 @@ body {
 
 #sidebar {
   grid-area: 1 / 1 / 4 / 2;
+	display: flex;
+	flex-direction: column;
+	gap: 3vh;
 }
 
 #main {
   grid-area: 2 / 2 / 3 / 3;
+  display: grid;
+  grid-template: 1fr 1fr / 1fr 1fr;
+  gap: 2vmin;
 }
 
 #footer {
   grid-area: 3 / 2 / 4 / 3;
 }
 
+#header, #footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .container {
   background-color: var(--color2);
   border-radius: 1vmin;
   padding: 2vmin;
+}
+
+.project {
+	background-color: var(--color6);
+	border-radius: 1.1vmin;
+	box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+	gap: vh;
+	padding: 1vmin;
+}
+
+.imgClass {
+	width: 20vmin;
+	height: auto;
+	border-radius: 3vmin;
+	border: 4px double var(--color5);
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+#main a {
+	font-size: 2.4vmin;
+	color: var(--color1);
+}
+
+#main a:visited {
+	color: var(--color3);
+}
+
+#main a:active, #main a:hover {
+	color: var(--color4);
+}
+
+#sidebar a {
+	font-size: 2.3vmin;
+	color: var(--color5);
+}
+
+#sidebar a:visited {
+	color: var(--color4);
+}
+
+#sidebar a:active, #sidebar a:hover {
+	color: var(--color3);
 }
