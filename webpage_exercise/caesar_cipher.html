@@ -30,34 +30,41 @@
             </sidebar>
 
             <main id="mainPages" class="container">
-                <div class="projectPages">
-                    <form action="">
-                        <fieldset>
-                            <label for="encodedStr">Write the encoded string here, put just letters and spaces:</label><br>
-                            <input id="encodedStr" name="encodedStr" type="text" pattern="/[a-z] /i">
-                        </fieldset>
+                
+                <form action="">
 
-                        <fieldset>
-                            <legend>Choose the alphabet to decode from:</legend>
+                    <fieldset id="encodedFieldset">
+                        <h3>Write the encoded string here, put just letters and spaces:</h3>
+                        <input id="encodedStr" name="encodedStr" type="text" pattern="/[a-z] /i">
+                    </fieldset>
 
-                            <input id="english" value="english" name="alphabet" type="radio" checked><label for="english"> English</label><br>
+                    <fieldset id="radioFieldset">
+                        <h3>Choose the alphabet to decode from:</h3>
 
-                            <input id="spanish" value="spanish" name="alphabet" type="radio"><label for="spanish"> Spanish</label><br>
+                        <div class="radioContainer">
+                            <input id="english" value="english" name="alphabet" type="radio" checked><label for="english">English</label>
+                        </div>
 
-                            <input id="valencian" value="valencian" name="alphabet" type="radio"><label for="valencian"> Valencian</label><br>
+                        <div class="radioContainer">
+                            <input id="spanish" value="spanish" name="alphabet" type="radio"><label for="spanish">Spanish</label>
+                        </div>
 
-                        </fieldset>
+                        <div class="radioContainer">
+                            <input id="valencian" value="valencian" name="alphabet" type="radio"><label for="valencian">Valencian</label>
+                        </div>
 
-                        <fieldset>
-                            <button type="button">DECODE</button>
-                        </fieldset>
-                    </form>
+                    </fieldset>
 
-                    <div id="decodedContainer">
-                        <h3>Decoded string:</h3>
-                        <div id="results"></div>
-                    </div>
+                    <fieldset>
+                        <button id="decodeButton" type="button">DECODE</button>
+                    </fieldset>
+                </form>
+
+                <div id="decodedContainer">
+                    <h3>Decoded string:</h3>
+                    <div id="results"></div>
                 </div>
+             
             </main>
 
             <footer id="footer" class="container">

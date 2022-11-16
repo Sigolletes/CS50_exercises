@@ -43,6 +43,10 @@ const caesarCipher = (function() {
 // PRINT RESULT TO DOM
 
 // TAKE PARAMETERS FROM DOM
-    // ALPHABET, ENCODED STRING, POSITION
+    // ALPHABET, ENCODED STRING
+
+const takeParameters = (function() {
+  
+})();
 
 // CALL DECODER

@@ -141,33 +141,58 @@ a:active, a:hover {
 
 #mainPages {
 	grid-area: 2 / 2 / 3 / 3;
-}
-
-.projectPages {
 	background-color: var(--color6);
+	height: 100%;
 	border-radius: 1.1vmin;
 	box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-	width: 100%;
-	height: 100%;
 	padding: 2vmin;
 	display: grid;
-	grid-template-rows: 1fr 2fr;
-	gap: 2vmin;
+	grid-template-rows: 1fr 1fr;
+	gap: 2vh;
 }
 
-.projectPages form, #decodedContainer {
+form, #decodedContainer {
 	border: 4px double var(--color3);
 	border-radius: 1vmin;
 	padding: 1vmin;
 	box-shadow: rgba(245, 175, 63, 0.35) 0px 0px 13px;
 }
 
-.projectPages form {
+form {
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	font-size: 2.2vmin;
+}
+
+#encodedFieldset {
 	display: flex;
 	flex-direction: column;
-	justify-content: space-around;
-	font-size: 2.2vmin;
 	gap: 1vh;
+	justify-content: center;
+	align-items: center;
+}
+
+#radioFieldset {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#radioFieldset .radioContainer {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1vw;
+	padding-right: 8vw;
+}
+
+#english, #spanish, #valencian {
+	justify-self: right;
+	width: 2vmin;
+}
+
+.radioContainer label {
+	justify-self: left;
 }
 
 fieldset {
@@ -176,20 +201,32 @@ fieldset {
 
 input {
 	width: 90%;
-	padding: 1vmin;
+	padding: 4px;
 	text-align: center;
 	color: var(--color1);
 	font-size: 2vmin;
+	border: 1px solid rgb(201, 107, 7);
+	border-radius: 5px;
+}
+
+button {
+	padding: 1vmin;
+	background-color: var(--color3);
+	color: var(--color2);
+	font-size: 2vmin;
+	border-radius: 1vmin;
+	border: 1px solid rgb(201, 107, 7);
+	box-shadow: #c3670566 0px 2px 4px, #c3670566 0px 7px 13px -3px, #c3670566 0px -3px 0px inset;
 }
 
 #decodedContainer {
 	display: grid;
-	grid-template-rows: 1fr 10fr;
+	grid-template-rows: auto 1fr;
+	gap: 1vh;
 }
 
-results {
+#results {
 	border: 1px solid var(--color1);
 	background-color: var(--color2);
 	border-radius: 1vmin;
-	padding: 1vmin;
 }
