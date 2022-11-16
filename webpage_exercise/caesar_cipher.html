@@ -5,13 +5,65 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width ,initial-scale=1.0">
         <link rel="stylesheet" href="styles.css">
-        <script src="script.js" defer></script>
+        <script src="caesar_cipher.js" defer></script>
         <title>Caesar Cipher</title>
     </head>
 
     <body>
 
+        <div id="grid">
 
+			<header id="header" class="container">
+				<h1>Caesar Cipher</h1>
+			</header>
+       
 
+            <sidebar id="sidebar" class="container">
+                <h2>INDEX</h2>
+                <nav id="navBar">
+                    <ul>
+                        <li><a href="./index.html">Main page</a></li>
+                        <li><a href="./caesar_cipher.html">Caesar Cipher</a></li>
+                        <li><a href="https://github.com/Sigolletes" target="_blank">GitHub</a></li>
+                    </ul>
+                </nav>
+            </sidebar>
+
+            <main id="mainPages" class="container">
+                <div class="projectPages">
+                    <form action="">
+                        <fieldset>
+                            <label for="encodedStr">Write the encoded string here, put just letters and spaces:</label><br>
+                            <input id="encodedStr" name="encodedStr" type="text" pattern="/[a-z] /i">
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>Choose the alphabet to decode from:</legend>
+
+                            <input id="english" value="english" name="alphabet" type="radio" checked><label for="english"> English</label><br>
+
+                            <input id="spanish" value="spanish" name="alphabet" type="radio"><label for="spanish"> Spanish</label><br>
+
+                            <input id="valencian" value="valencian" name="alphabet" type="radio"><label for="valencian"> Valencian</label><br>
+
+                        </fieldset>
+
+                        <fieldset>
+                            <button type="button">DECODE</button>
+                        </fieldset>
+                    </form>
+
+                    <div id="decodedContainer">
+                        <h3>Decoded string:</h3>
+                        <div id="results"></div>
+                    </div>
+                </div>
+            </main>
+
+            <footer id="footer" class="container">
+                <h5>CS50's exercise by <a href="https://github.com/Sigolletes" target="_blank">Sigolletes</a></h5>
+            </footer>
+
+        </div>
     </body>
 </html>

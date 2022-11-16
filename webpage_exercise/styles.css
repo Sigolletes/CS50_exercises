@@ -27,15 +27,15 @@ body {
 
 #grid {
 	width: 100%;
-  height: 100%;
-  background-color: var(--color4);
+	height: 100%;
+	background-color: var(--color4);
 	display: grid;
-  grid-template-rows: 2fr 17fr 1fr;
-  grid-template-columns: 1fr 5fr;
-  gap: 2vmin;
-  padding: 2vmin;
+	grid-template-rows: 2fr 17fr 1fr;
+	grid-template-columns: 1fr 5fr;
+	gap: 2vmin;
+	padding: 2vmin;
 	text-align: center;
-  color: var(--color5);
+  	color: var(--color5);
 }
 
 h1 {
@@ -60,6 +60,12 @@ h5 {
 
 #sidebar {
   grid-area: 1 / 1 / 4 / 2;
+	display: flex;
+	flex-direction: column;
+	gap: 4vh;
+}
+
+#sidebar ul {
 	display: flex;
 	flex-direction: column;
 	gap: 3vh;
@@ -96,7 +102,6 @@ h5 {
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-evenly;
-	gap: vh;
 	padding: 1vmin;
 }
 
@@ -121,15 +126,70 @@ h5 {
 	color: var(--color4);
 }
 
-#sidebar a {
+a {
 	font-size: 2.3vmin;
 	color: var(--color5);
 }
 
-#sidebar a:visited {
+a:visited {
 	color: var(--color4);
 }
 
-#sidebar a:active, #sidebar a:hover {
+a:active, a:hover {
 	color: var(--color3);
+}
+
+#mainPages {
+	grid-area: 2 / 2 / 3 / 3;
+}
+
+.projectPages {
+	background-color: var(--color6);
+	border-radius: 1.1vmin;
+	box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+	width: 100%;
+	height: 100%;
+	padding: 2vmin;
+	display: grid;
+	grid-template-rows: 1fr 2fr;
+	gap: 2vmin;
+}
+
+.projectPages form, #decodedContainer {
+	border: 4px double var(--color3);
+	border-radius: 1vmin;
+	padding: 1vmin;
+	box-shadow: rgba(245, 175, 63, 0.35) 0px 0px 13px;
+}
+
+.projectPages form {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	font-size: 2.2vmin;
+	gap: 1vh;
+}
+
+fieldset {
+	border: none;
+}
+
+input {
+	width: 90%;
+	padding: 1vmin;
+	text-align: center;
+	color: var(--color1);
+	font-size: 2vmin;
+}
+
+#decodedContainer {
+	display: grid;
+	grid-template-rows: 1fr 10fr;
+}
+
+results {
+	border: 1px solid var(--color1);
+	background-color: var(--color2);
+	border-radius: 1vmin;
+	padding: 1vmin;
 }
