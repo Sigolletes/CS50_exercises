@@ -123,6 +123,16 @@ p {
 	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
+a {
+	font-size: clamp(13px, 2.5vmin, 25px);
+	color: var(--color4);
+}
+
+li:hover, a:hover {
+	color: var(--color3);
+	transform: scale(1.2);
+}
+
 #main a {
 	font-size: clamp(13px, 2.5vmin, 25px);
 	color: var(--color1);
@@ -132,20 +142,11 @@ p {
 	color: var(--color3);
 }
 
-#main a:active, #main a:hover {
+#main a:hover {
 	color: var(--color4);
 }
 
-a {
-	font-size: clamp(13px, 2.5vmin, 25px);
-	color: var(--color5);
-}
-
-a:visited {
-	color: var(--color4);
-}
-
-a:active, a:hover {
+#current {
 	color: var(--color3);
 }
 

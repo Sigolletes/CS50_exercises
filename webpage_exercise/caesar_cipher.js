@@ -45,26 +45,45 @@ const caesarCipher = (function() {
 // TAKE PARAMETERS FROM DOM AND CALL DECODER
 const takeParameters = (function() {
   const encodedStr = document.querySelector("#encodedStr");
-  let radioAlphabet = document.querySelector('input[name="alphabet"]:checked').value;
   const decodeButton = document.querySelector("#decodeButton");
-  let alphabetChoosed;
+  const restart = document.querySelector("#restart");
 
-  if (radioAlphabet === "english") {
-    alphabetChoosed = englishAlphabet;
-  } else if (radioAlphabet === "spanish") {
-    alphabetChoosed = spanishAlphabet;
-  } else if (radioAlphabet === "valencian") {
-    alphabetChoosed = valencianAlphabet;
+  const decode = () => {
+    decodeButton.addEventListener("click", () => {
+      let alphabetChoosed;
+      if (document.getElementById("english").checked) {
+        alphabetChoosed = englishAlphabet;
+      } else if (document.getElementById("spanish").checked) {
+        alphabetChoosed = spanishAlphabet;
+      } else if (document.getElementById("valencian").checked) {
+        alphabetChoosed = valencianAlphabet;
+      }
+      if (encodedStr.checkValidity()) {
+        caesarCipher.printAll(encodedStr.value, alphabetChoosed);
+      }
+    }, {once: true});
   }
+  restart.addEventListener("click", () => {
+    cleaner.clean();
+  });
+  return {
+    decode
+  }
+})();
+takeParameters.decode();
 
-  decodeButton.addEventListener("click", () => {
-    console.log("before");
-    if (encodedStr.checkValidity()) {
-      console.log("conditional");
-      caesarCipher.printAll(encodedStr.value, alphabetChoosed);
-    }
-    console.log("afterConditional");
-  })
+const cleaner = (function() {
+  const clean = () => {
+    document.querySelector("#results").innerHTML = "";
+    document.querySelector("#encodedStr").value = "";
+    document.getElementById("english").checked = false;
+    document.getElementById("spanish").checked = false;
+    document.getElementById("valencian").checked = false;
+    takeParameters.decode();
+  }
+  return {
+    clean
+  }
 })();
 
 // PRINT RESULT TO DOM
