@@ -40,19 +40,28 @@ body {
 }
 
 h1 {
-	font-size: 4.9vmin;
+	font-size: clamp(20px, 5.5vmin, 55px);
 }
 
 h2 {
-	font-size: 2.7vmin;
+	font-size: clamp(18px, 2.9vmin, 45px);
 }
 
 h3 {
-	font-size: 2.5vmin;
+	font-size: clamp(13px, 2.5vmin, 25px);
+}
+
+h4 {
+	color: var(--color3);
+	font-size: clamp(13px, 2vmin, 20px);
 }
 
 h5 {
-	font-size: 2vmin;
+	font-size: clamp(10px, 1.7vmin, 18px);
+}
+
+p {
+	font-size: clamp(13px, 2vmin, 20px);
 }
 
 #header {
@@ -115,7 +124,7 @@ h5 {
 }
 
 #main a {
-	font-size: 2.4vmin;
+	font-size: clamp(13px, 2.5vmin, 25px);
 	color: var(--color1);
 }
 
@@ -128,7 +137,7 @@ h5 {
 }
 
 a {
-	font-size: 2.3vmin;
+	font-size: clamp(13px, 2.5vmin, 25px);
 	color: var(--color5);
 }
 
@@ -162,7 +171,8 @@ form, #decodedContainer {
 form {
 	display: grid;
 	grid-template-rows: auto 1fr auto;
-	font-size: 2.2vmin;
+	font-size: clamp(13px, 2.5vmin, 25px);
+	gap: 1vh;
 }
 
 #encodedFieldset {
@@ -184,7 +194,7 @@ form {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: 1vw;
-	padding-right: 8vw;
+	padding-right: 6vw;
 }
 
 #english, #spanish, #valencian {
@@ -205,7 +215,7 @@ input {
 	padding: 4px;
 	text-align: center;
 	color: var(--color1);
-	font-size: 2vmin;
+	font-size: clamp(12px, 2.3vmin, 21px);
 	border: 1px solid rgb(201, 107, 7);
 	border-radius: 5px;
 	background-color: var(--color7);
@@ -215,7 +225,7 @@ button {
 	padding: 1vmin;
 	background-color: var(--color3);
 	color: var(--color2);
-	font-size: 2vmin;
+	font-size: clamp(11px, 2vmin, 23px);
 	border-radius: 1vmin;
 	border: 1px solid rgb(201, 107, 7);
 	box-shadow: #c3670566 0px 2px 4px, #c3670566 0px 7px 13px -3px, #c3670566 0px -3px 0px inset;
@@ -232,5 +242,10 @@ button {
 	border: 1px solid var(--color1);
 	background-color: var(--color7);
 	border-radius: 1vmin;
-	overflow-y: auto;
+	overflow: auto;
+	text-align: left;
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: 1vw;
 }
+

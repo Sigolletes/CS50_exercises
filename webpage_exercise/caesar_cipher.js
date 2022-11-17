@@ -75,14 +75,12 @@ const print = (function() {
   const printPosition = (position) => {
     const index = document.createElement("h4");
     index.textContent = position;
-/*     index.innerText("position"); */
     results.appendChild(index);
   }
 
   const printDecoded = (decodedText) => {
     const paragraph = document.createElement("p");
     paragraph.textContent = decodedText;
-  /*   paragraph.innerText(decodedText); */
     results.appendChild(paragraph);
   }
   return {
