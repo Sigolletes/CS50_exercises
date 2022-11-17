@@ -1,4 +1,4 @@
-const alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+const englishAlphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
 const spanishAlphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "ñ", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "ñ", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
@@ -8,7 +8,7 @@ const valencianAlphabet = ["a", "b", "c", "ç", "d", "e", "f", "g", "h", "i", "j
 
 const caesarCipher = (function() {
 
-  const decoder = (encodedStr, positions) => {
+  const decoder = (encodedStr, positions, alphabet) => {
     encodedStr = encodedStr.toLowerCase();
     let decoded = [];
     for (let char of encodedStr) {
@@ -19,34 +19,74 @@ const caesarCipher = (function() {
         decoded.push(alphabet[charIndex + positions]);
       }
     }
-   console.log(decoded.join(""));
-   decoded.splice(0);
+    print.printDecoded(decoded.join(""));
+    decoded.splice(0);
   }
 
-  const printAll = (encodedStr) => {
-    const englishLength = 25;
-    const spanishLength = 26;
+  const printAll = (encodedStr, alphabet) => {
+    let letters;
 
-    for (let i = 0; i <= 25; i++) {
-      console.log(`${i} positions: `);
-      decoder(encodedStr, i);
+    if (alphabet === englishAlphabet) {
+      letters = 25;
+    } else if (alphabet === spanishAlphabet || alphabet === valencianAlphabet) {
+      letters = 26;
+    }
+
+    for (let i = 0; i <= letters; i++) {
+      print.printPosition(i);
+      decoder(encodedStr, i, alphabet);
     }
   }
-
   return {
-    decoder,
     printAll
   };
 })();
 
+// TAKE PARAMETERS FROM DOM AND CALL DECODER
+const takeParameters = (function() {
+  const encodedStr = document.querySelector("#encodedStr");
+  let radioAlphabet = document.querySelector('input[name="alphabet"]:checked').value;
+  const decodeButton = document.querySelector("#decodeButton");
+  let alphabetChoosed;
+
+  if (radioAlphabet === "english") {
+    alphabetChoosed = englishAlphabet;
+  } else if (radioAlphabet === "spanish") {
+    alphabetChoosed = spanishAlphabet;
+  } else if (radioAlphabet === "valencian") {
+    alphabetChoosed = valencianAlphabet;
+  }
+
+  decodeButton.addEventListener("click", () => {
+    console.log("before");
+    if (encodedStr.checkValidity()) {
+      console.log("conditional");
+      caesarCipher.printAll(encodedStr.value, alphabetChoosed);
+    }
+    console.log("afterConditional");
+  })
+})();
 
 // PRINT RESULT TO DOM
 
-// TAKE PARAMETERS FROM DOM
-    // ALPHABET, ENCODED STRING
+const print = (function() {
+  const results = document.querySelector("#results");
 
-const takeParameters = (function() {
-  
+  const printPosition = (position) => {
+    const index = document.createElement("h4");
+    index.textContent = position;
+/*     index.innerText("position"); */
+    results.appendChild(index);
+  }
+
+  const printDecoded = (decodedText) => {
+    const paragraph = document.createElement("p");
+    paragraph.textContent = decodedText;
+  /*   paragraph.innerText(decodedText); */
+    results.appendChild(paragraph);
+  }
+  return {
+    printPosition,
+    printDecoded
+  }
 })();
-
-// CALL DECODER
